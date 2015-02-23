@@ -1,0 +1,11 @@
+C:\Users\vrumale\Documents\android-rest-client-template-master\MySimpleTweets\app\build\intermediates\classes\debug
+C:\Users\vrumale\Documents\android-rest-client-template-master\MySimpleTweets\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.0-4341675f45dffadaef6561731fa06954078765f5.jar
+C:\Users\vrumale\Documents\android-rest-client-template-master\MySimpleTweets\app\build\intermediates\pre-dexed\debug\codepath-utils-7fa0e87104cc3e31f9dad65bbe8c9e12788cd187.jar
+C:\Users\vrumale\Documents\android-rest-client-template-master\MySimpleTweets\app\build\intermediates\pre-dexed\debug\codepath-oauth-0.4.1-470b687fa698aadeebb179e1072aa4fffc02b0f9.jar
+C:\Users\vrumale\Documents\android-rest-client-template-master\MySimpleTweets\app\build\intermediates\pre-dexed\debug\ActiveAndroid-3.1-08c6335cd-c6ac3ec441bd2f10dff5b2c914da92226c3fc716.jar
+C:\Users\vrumale\Documents\android-rest-client-template-master\MySimpleTweets\app\build\intermediates\pre-dexed\debug\scribe-codepath-0.0.3-fd94ceae960e3c0cf744365e8bffdc837e909fc2.jar
+C:\Users\vrumale\Documents\android-rest-client-template-master\MySimpleTweets\app\build\intermediates\pre-dexed\debug\android-async-http-1.4.6-0401fd0ad83ca7f0199213375d5625ca1ede8310.jar
+C:\Users\vrumale\Documents\android-rest-client-template-master\MySimpleTweets\app\build\intermediates\pre-dexed\debug\picasso-2.4.0-829be167e6b071bbe97bcc20662ed01707cac0fa.jar
+C:\Users\vrumale\Documents\android-rest-client-template-master\MySimpleTweets\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.0-7405b69fe1c7460b13459c82f312b0a557c43a83.jar
+C:\Users\vrumale\Documents\android-rest-client-template-master\MySimpleTweets\app\build\intermediates\pre-dexed\debug\classes-ac89aec6eb27a9d56d85654a2896ec1e44d0da48.jar
+C:\Users\vrumale\Documents\android-rest-client-template-master\MySimpleTweets\app\build\intermediates\pre-dexed\debug\classes-fa8c8c50758ad42b0ba35502c3d3ac06121a5032.jar
