@@ -1,6 +1,7 @@
 package com.codepath.apps.mysimpletweets;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.codepath.apps.mysimpletweets.activity.DetailedTweetActivity;
+import com.codepath.apps.mysimpletweets.activity.ProfileActivity;
 import com.codepath.apps.mysimpletweets.models.Tweet;
 import com.squareup.picasso.Picasso;
 
@@ -31,7 +34,7 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet>{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         //1. Get the tweet
-        Tweet tweet = getItem(position);
+        final Tweet tweet = getItem(position);
         //2. Find or inflate the template
         if(convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_tweet, parent, false);
@@ -49,7 +52,26 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet>{
         tvCreatedTime.setText(getRelativeTimeAgo(tweet.getCreatedAt()));
         ivProfileImage.setImageResource(android.R.color.transparent); //clear out the old image for a recycled view
         Picasso.with(getContext()).load(tweet.getUser().getProfileImageUrl()).into(ivProfileImage);
+        ivProfileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ProfileActivity.class);
+                intent.putExtra("user", tweet.getUser());
+                //Toast.makeText(getContext(), "extra user", Toast.LENGTH_SHORT).show();
+                getContext().startActivity(intent);
+            }
+        });
+        tvBody.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), DetailedTweetActivity.class);
+                intent.putExtra("tweet", tweet);
+                getContext().startActivity(intent);
+            }
+        });
         //5. Return the view to be inserted into the list
+
         return convertView;
     }
     // getRelativeTimeAgo("Mon Apr 01 21:16:23 +0000 2014");

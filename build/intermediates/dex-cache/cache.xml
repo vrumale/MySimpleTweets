@@ -30,6 +30,13 @@
         <dex dex="C:\Users\vrumale\Documents\android-rest-client-template-master\MySimpleTweets\app\build\intermediates\pre-dexed\debug\classes-fa8c8c50758ad42b0ba35502c3d3ac06121a5032.jar" />
     </item>
     <item
+        jar="C:\Users\vrumale\Documents\android-rest-client-template-master\MySimpleTweets\app\build\intermediates\exploded-aar\com.astuetz\pagerslidingtabstrip\1.0.1\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7912610ed96381c25c36d986eba422731b9641b6">
+        <dex dex="C:\Users\vrumale\Documents\android-rest-client-template-master\MySimpleTweets\app\build\intermediates\pre-dexed\debug\classes-268390fd7dbd5309987311021f5b56fae2e81b90.jar" />
+    </item>
+    <item
         jar="C:\Users\vrumale\Documents\android-rest-client-template-master\MySimpleTweets\app\libs\codepath-utils.jar"
         jumboMode="false"
         revision="21.1.2"

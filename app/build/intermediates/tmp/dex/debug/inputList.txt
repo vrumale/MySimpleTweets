@@ -1,6 +1,7 @@
 C:\Users\vrumale\Documents\android-rest-client-template-master\MySimpleTweets\app\build\intermediates\classes\debug
 C:\Users\vrumale\Documents\android-rest-client-template-master\MySimpleTweets\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.0-4341675f45dffadaef6561731fa06954078765f5.jar
 C:\Users\vrumale\Documents\android-rest-client-template-master\MySimpleTweets\app\build\intermediates\pre-dexed\debug\codepath-utils-7fa0e87104cc3e31f9dad65bbe8c9e12788cd187.jar
+C:\Users\vrumale\Documents\android-rest-client-template-master\MySimpleTweets\app\build\intermediates\pre-dexed\debug\classes-268390fd7dbd5309987311021f5b56fae2e81b90.jar
 C:\Users\vrumale\Documents\android-rest-client-template-master\MySimpleTweets\app\build\intermediates\pre-dexed\debug\codepath-oauth-0.4.1-470b687fa698aadeebb179e1072aa4fffc02b0f9.jar
 C:\Users\vrumale\Documents\android-rest-client-template-master\MySimpleTweets\app\build\intermediates\pre-dexed\debug\ActiveAndroid-3.1-08c6335cd-c6ac3ec441bd2f10dff5b2c914da92226c3fc716.jar
 C:\Users\vrumale\Documents\android-rest-client-template-master\MySimpleTweets\app\build\intermediates\pre-dexed\debug\scribe-codepath-0.0.3-fd94ceae960e3c0cf744365e8bffdc837e909fc2.jar

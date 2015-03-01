@@ -60,6 +60,10 @@
             android:label="@string/title_activity_detailed_tweet"
             android:parentActivityName="com.codepath.apps.mysimpletweets.activity.TimeLineActivity" >
         </activity>
+        <activity
+            android:name="com.codepath.apps.mysimpletweets.activity.ProfileActivity"
+            android:label="@string/title_activity_profile" >
+        </activity>
     </application>
 
 </manifest>

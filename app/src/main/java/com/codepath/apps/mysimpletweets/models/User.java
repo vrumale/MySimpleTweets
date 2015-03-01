@@ -15,6 +15,9 @@ public class User implements Parcelable {
     private long uid;
     private String screenName;
     private String profileImageUrl;
+    private String tagline;
+    private int followingCount;
+    private  int followersCount;
     public String getName() {
         return name;
     }
@@ -32,6 +35,17 @@ public class User implements Parcelable {
     }
 
 
+    public String getTagline() {
+        return tagline;
+    }
+
+    public int getFriendsCount() {
+        return followingCount;
+    }
+
+    public int getFollowersCount() {
+        return followersCount;
+    }
 
     //deserialize the user json => User
     public static User fromJSON(JSONObject json) {
@@ -42,6 +56,9 @@ public class User implements Parcelable {
             u.uid = json.getLong("id");
             u.screenName = json.getString("screen_name");
             u.profileImageUrl = json.getString("profile_image_url");
+            u.tagline = json.getString("description");
+            u.followersCount = json.getInt("followers_count");
+            u.followingCount = json.getInt("friends_count");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -59,6 +76,8 @@ public class User implements Parcelable {
         dest.writeLong(this.uid);
         dest.writeString(this.screenName);
         dest.writeString(this.profileImageUrl);
+        dest.writeInt(this.followersCount);
+        dest.writeInt(this.followingCount);
     }
 
     public User() {
@@ -69,6 +88,8 @@ public class User implements Parcelable {
         this.uid = in.readLong();
         this.screenName = in.readString();
         this.profileImageUrl = in.readString();
+        this.followingCount = in.readInt();
+        this.followersCount = in.readInt();
     }
 
     public static final Parcelable.Creator<User> CREATOR = new Parcelable.Creator<User>() {

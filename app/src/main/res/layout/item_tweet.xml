@@ -6,7 +6,9 @@
     android:paddingTop="10dp"
     android:paddingRight="10dp"
     android:paddingBottom="10dp"
-    android:descendantFocusability="blocksDescendants">
+    android:descendantFocusability="blocksDescendants"
+    android:clickable="true"
+    android:onClick="onProfileView">
 
     <ImageView
         android:layout_width="50dp"
@@ -34,7 +36,6 @@
         android:layout_below="@+id/tvUserNAME"
         android:layout_toRightOf="@+id/ivProfileImage"/>
 
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,11 +47,7 @@
         android:gravity="bottom"
         android:layout_toRightOf="@+id/ivProfileImage"
         android:layout_toEndOf="@+id/tvUserNAME"
-
         android:autoLink="all"/>
-
-
-
 
     <TextView
         android:layout_width="wrap_content"

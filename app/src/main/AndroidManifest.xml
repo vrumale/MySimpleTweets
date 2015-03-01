@@ -48,18 +48,21 @@
         <activity
             android:name=".activity.TimeLineActivity"
             android:label="@string/title_activity_time_line"
-            android:theme="@style/AppTheme">
-
+            android:theme="@style/AppTheme" >
         </activity>
         <activity
             android:name=".activity.ComposeActivity"
             android:label="@string/title_activity_compose"
-            android:parentActivityName=".activity.TimeLineActivity">
+            android:parentActivityName=".activity.TimeLineActivity" >
         </activity>
         <activity
             android:name=".activity.DetailedTweetActivity"
-            android:parentActivityName=".activity.TimeLineActivity"
-            android:label="@string/title_activity_detailed_tweet" >
+            android:label="@string/title_activity_detailed_tweet"
+            android:parentActivityName=".activity.TimeLineActivity" >
+        </activity>
+        <activity
+            android:name=".activity.ProfileActivity"
+            android:label="@string/title_activity_profile" >
         </activity>
     </application>
 
