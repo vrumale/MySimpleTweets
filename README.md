@@ -21,7 +21,7 @@ Optional:
 * User can go back to the HomeTimeline from anyother view Profile, Compose etc using the ActionBar back button
 
 ## Usage Walkthrough (Week 2 updated)
-![Video Walkthrough](TwitterRedux.gif) 
+![Video Walkthrough](TweetsRedux.gif) 
 
 
 
