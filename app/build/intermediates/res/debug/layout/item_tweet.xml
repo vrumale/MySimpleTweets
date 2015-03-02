@@ -7,8 +7,7 @@
     android:paddingRight="10dp"
     android:paddingBottom="10dp"
     android:descendantFocusability="blocksDescendants"
-    android:clickable="true"
-    android:onClick="onProfileView">
+    android:clickable="true">
 
     <ImageView
         android:layout_width="50dp"

@@ -1,17 +1,24 @@
 package com.codepath.apps.mysimpletweets.activity;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.astuetz.PagerSlidingTabStrip;
 import com.codepath.apps.mysimpletweets.R;
 import com.codepath.apps.mysimpletweets.TwitterApplication;
 import com.codepath.apps.mysimpletweets.TwitterClient;
+import com.codepath.apps.mysimpletweets.fragments.FollowingListTimeline;
+import com.codepath.apps.mysimpletweets.fragments.FriendsListTimeline;
 import com.codepath.apps.mysimpletweets.fragments.UserTimelineFragment;
 import com.codepath.apps.mysimpletweets.models.User;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -22,21 +29,30 @@ import org.json.JSONObject;
 
 public class ProfileActivity extends ActionBarActivity {
     TwitterClient client;
-    User user;
+    public User user;
+    public String screenName;
+    public int[] count;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
+        //Action Bar
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setLogo(R.drawable.ic_action_twitter_bird_logo_2012);
+        actionBar.setDisplayUseLogoEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        count = new int[3];
         try {
             user = (User) getIntent().getParcelableExtra("user");
             if(user != null) {
-                Toast.makeText(this, "Correct USER", Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(this, "Correct USER", Toast.LENGTH_SHORT).show();
                 getSupportActionBar().setTitle("@" + user.getScreenName());
                 populateProfileHeader(user);
             }
         } catch (Exception e) {
             e.printStackTrace();
+
         }
         if(user == null){
             // you can make this call anywhere in the application you will get the same instance
@@ -50,35 +66,27 @@ public class ProfileActivity extends ActionBarActivity {
                     getSupportActionBar().setTitle("@" + user.getScreenName());
                     populateProfileHeader(user);
                 }
+
             });
         }
-        String screenName;
         //Get the screen name from the activity that launaches this
-        if(user == null) {
-            screenName = getIntent().getStringExtra("screen_name");
+        if(user != null) {
+            screenName = new String(user.getScreenName());
         }
-        else {
-            screenName = user.getScreenName();
-        }
-        //Create user timeline fragment
-        if(savedInstanceState == null){
-            UserTimelineFragment fragmentUserTimeline = UserTimelineFragment.newInstance(screenName);
-            //Display user fragment within this activity (dynamically)
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.flUserProfile, fragmentUserTimeline);
-            ft.commit();
-        }
+        ViewPager vpPager = (ViewPager) findViewById(R.id.viewprofilepager);
+        vpPager.setAdapter(new ProfilePagerAdapter(getSupportFragmentManager()));
+        PagerSlidingTabStrip tabStrip = (PagerSlidingTabStrip) findViewById(R.id.tabsProfile);
+        tabStrip.setViewPager(vpPager);
     }
     public void populateProfileHeader(User user) {
         TextView tvName = (TextView) findViewById(R.id.tvName);
         TextView tvTagline = (TextView) findViewById(R.id.tvTagline);
-        TextView tvFollowing = (TextView) findViewById(R.id.tvFollowing);
-        TextView tvFollowers = (TextView) findViewById(R.id.tvFollowers);
         ImageView ivProfileImage = (ImageView) findViewById(R.id.ivProfileImage);
         tvName.setText(user.getName());
         tvTagline.setText(user.getTagline());
-        tvFollowers.setText(user.getFollowersCount() + " Followers");
-        tvFollowing.setText(user.getFriendsCount() + " Following");
+        count[0] = user.getTweetsCount();
+        count[1] = user.getFollowersCount();
+        count[2] = user.getFriendsCount();
         Picasso.with(this).load(user.getProfileImageUrl()).into(ivProfileImage);
     }
 
@@ -102,5 +110,51 @@ public class ProfileActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public class ProfilePagerAdapter extends FragmentPagerAdapter {
+        final int PAGE_COUNT = 3;
+
+        private String tabTitles[] = {"Tweets:", "Followers:", "Following:"};
+
+        public ProfilePagerAdapter(FragmentManager fm) {
+            super(fm);
+
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            if(position == 0) {
+                UserTimelineFragment fragmentUserTimeline = UserTimelineFragment.newInstance(screenName);
+
+                return fragmentUserTimeline;
+
+            }
+            else if(position == 1){
+               // return new UserTimelineFragment();
+                FriendsListTimeline friendsListTimeline = FriendsListTimeline.newInstance(screenName);
+
+                return friendsListTimeline;
+            }
+            else if(position == 2) {
+                //return new UserTimelineFragment();
+                FollowingListTimeline followingListTimeline = FollowingListTimeline.newInstance(screenName);
+
+                return followingListTimeline;
+            }
+            else
+                return null;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            String countStr = new String(Integer.toString(count[position]));
+            String label = tabTitles[position];
+            return Html.fromHtml(label +countStr);
+        }
+
+        @Override
+        public int getCount() {
+            return tabTitles.length;
+        }
     }
 }

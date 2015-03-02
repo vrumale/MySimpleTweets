@@ -2,8 +2,6 @@ package com.codepath.apps.mysimpletweets.fragments;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Toast;
 
 import com.codepath.apps.mysimpletweets.TwitterApplication;
 import com.codepath.apps.mysimpletweets.TwitterClient;
@@ -55,7 +53,7 @@ public class HomeTimelineFragment extends TweetsListFragment {
             public void onSuccess(int statusCode, Header[] headers, JSONArray json) {
                 Log.d("DEBUG", json.toString());
                 addAll(Tweet.fromJSONArray(json));
-                Toast.makeText(getActivity(),"Loading data", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(),"Loading data", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -65,24 +63,4 @@ public class HomeTimelineFragment extends TweetsListFragment {
         });
     }
 
-    public void onSetProfile(View view) {
-        Toast.makeText(getActivity(),"Profile set", Toast.LENGTH_SHORT).show();
-    }
-
-    /*public void fetchTimelineAsync(int page) {
-        client.getHomeTimeline( new JsonHttpResponseHandler() {
-            public void onSuccess(JSONArray json) {
-                // Remember to CLEAR OUT old items before appending in the new ones
-                // aTweets.clear();
-                // ...the data has come back, add new items to your adapter...
-                addAll(Tweet.fromJSONArray(json));
-                // Now we call setRefreshing(false) to signal refresh has finished
-               swipeContainer.setRefreshing(false);
-            }
-
-            public void onFailure(Throwable e) {
-                Log.d("DEBUG", "Fetch timeline error: " + e.toString());
-            }
-        });
-    }*/
 }

@@ -69,10 +69,6 @@ public class TweetsListFragment extends Fragment {
         });*/
            return view;
     }
-    public interface OnItemSelectedListener {
-       public void onSetView(String str);
-
-    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -17,10 +17,12 @@ import org.json.JSONObject;
  */
 public class UserTimelineFragment extends TweetsListFragment {
     private TwitterClient client;
+    String screenName;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         client = TwitterApplication.getRestClient();
+        screenName = getArguments().getString("screen_name");
         populateTimeline();
     }
     public static UserTimelineFragment newInstance(String screen_name) {
@@ -35,7 +37,9 @@ public class UserTimelineFragment extends TweetsListFragment {
     //Fill the listview by creating the tweet objects from the json
     @Override
     protected void populateTimeline() {
-        String screenName = getArguments().getString("screen_name");
+        if(screenName == null) {
+            screenName = getArguments().getString("screen_name");
+        }
         client.getUserTimeline(screenName, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray json) {
@@ -57,7 +61,9 @@ public class UserTimelineFragment extends TweetsListFragment {
         // This method probably sends out a network request and appends new data items to your adapter.
         // Use the offset value and add it as a parameter to your API request to retrieve paginated data.
         // Deserialize API response and then construct new objects to append to the adapter
-        String screenName = getArguments().getString("screen_name");
+        if(screenName == null) {
+            screenName = getArguments().getString("screen_name");
+        }
         client.getUserTimelineNext(screenName, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray json) {

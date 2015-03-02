@@ -30,9 +30,6 @@ public class MentionsTimelineFragment extends TweetsListFragment {
     @Override
     protected void populateTimeline() {
         client.getMentionsTimeline(new JsonHttpResponseHandler() {
-
-            //SUCCESS
-
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray json) {
                 Log.d("DEBUG", json.toString());
@@ -42,9 +39,6 @@ public class MentionsTimelineFragment extends TweetsListFragment {
                 // LOAD THE MODEL DATA INTO LISTVIEW
                 addAll(Tweet.fromJSONArray(json));
             }
-
-            //fAILURE
-
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 Log.d("DEBUG", errorResponse.toString());
@@ -69,20 +63,4 @@ public class MentionsTimelineFragment extends TweetsListFragment {
         });
     }
 
-    /*public void fetchTimelineAsync(int page) {
-        client.getHomeTimeline(new JsonHttpResponseHandler() {
-            public void onSuccess(JSONArray json) {
-                // Remember to CLEAR OUT old items before appending in the new ones
-                // aTweets.clear();
-                // ...the data has come back, add new items to your adapter...
-                addAll(Tweet.fromJSONArray(json));
-                // Now we call setRefreshing(false) to signal refresh has finished
-               // swipeContainer.setRefreshing(false);
-            }
-
-            public void onFailure(Throwable e) {
-                Log.d("DEBUG", "Fetch timeline error: " + e.toString());
-            }
-        });
-    }*/
 }
