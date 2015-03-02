@@ -19,6 +19,7 @@ Optional:
 * User can click on a tweet to be taken to a "detail view" of that tweet
 * Improve the user experience to feel like Twitter branded
 * User can go back to the HomeTimeline from anyother view Profile, Compose etc using the ActionBar back button
+
 ## Usage Walkthrough (Week 2 updated)
 ![Video Walkthrough](TwitterRedux.gif) 
 
